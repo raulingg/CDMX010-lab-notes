@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Taviraj:wght@100&display=swap');
+ body{
+  margin: 0;
+  font-family: 'Taviraj', serif;
+  background-image: url(../assets/img/ducky.png);
+  background-size: cover;
+  
+}
+.titleD {
+  display: flex;
+  font-family: 'Rancho', cursive;
+  font-size:50px;
+  color: white;
+  background-color: #605C5C;
+  padding: 0px 30px;
+  text-align: center;
+  position: absolute;
+  margin-left: 30%;
+  margin-right: 50%;
+  margin-top: 50%;
+  color: #FFFAFA;
+  mix-blend-mode: normal;
+  
+}
+.titleD p{
+    margin: 3%;
+    text-align: center;
+    
+}
+.button {
+    font-family: 'Taviraj', serif;
+    background-color:green;
+}
+
+.buttonIni{
+  text-align: center;
+  position: absolute;
+  width: 140px;
+  height: 45px;
+  left: 330px;
+  top: 552px;
+  background: rgba(0, 0, 0, 0.82);
+  font-family: Rancho;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1em;
+  
+  color: #FFFAFA;
+}
