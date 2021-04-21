@@ -1,43 +1,57 @@
 import React, { useState } from "react";
-import { Button } from "../Elements/Button"
-import { fireStore } from "../../firebase";
+import { Button } from "../Elements/Button";
 
-export const Note = () => {
-
-  const [date, setDate] = useState("")
-  const [title, setTitle] = useState("")
-  const [text, setText] = useState("")
+export const Note = ({ onSubmit, note }) => {
+  const [date, setDate] = useState("");
+  const [title, setTitle] = useState(note?.title || "");
+  const [description, setDescription] = useState(note?.description || "");
 
 
-  const setNotes = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const writeNotes = {
-      date: date,
-      title: title,
-      description: text,
-    }
-    try {
-      const data = await fireStore.collection("remember").add(writeNotes)
-    } catch (error) {
-      console.log(error)
+
+    if (note) {
+      return onSubmit(note.id, { title, description, updatedAt: new Date() })
     }
 
-    fireStore.collection("remember")
-
-  }
+    return onSubmit({ date, title, description})
+  };
 
   return (
     <div className="note">
-      <form onSubmit={setNotes}>
+      <form onSubmit={handleSubmit}>
         <div id="noteContent">
-          <input onChange={(e) => { setDate(e.target.value) }} type="date" className="Date"></input><br></br>
-          <input onChange={(e) => { setTitle(e.target.value) }} type="text" className="Title" placeholder="Titulo"></input> <br></br>
-          <textarea onChange={(e) => { setText(e.target.value) }} className="descriptionNote"
-            placeholder="Escribe tu notita"></textarea><br></br>
-          <Button />
+          <input
+            onChange={(e) => {
+              setDate(e.target.value);
+            }}
+            type="date"
+            className="Date"
+            value={date}
+          ></input>
+          <br></br>
+          <input
+            onChange={(e) => {
+              setTitle(e.target.value);
+            }}
+            type="text"
+            className="Title"
+            placeholder="Titulo"
+            value={title}
+          ></input>{" "}
+          <br></br>
+          <textarea
+            onChange={(e) => {
+              setDescription(e.target.value);
+            }}
+            className="descriptionNote"
+            placeholder="Escribe tu notita"
+            value={description}
+          ></textarea>
+          <br></br>
+          <Button text="Crear" />
         </div>
       </form>
     </div>
-  )
-
-}
+  );
+};
