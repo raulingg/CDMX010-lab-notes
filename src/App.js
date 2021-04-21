@@ -14,7 +14,7 @@ function App() {
   return (
     <Router>
       <div className="container-btns">
-        <div className="btn-group">
+       { /*<div className="btn-group">
         <Link to="/CardEdit" className="btn-dark">
           Ingresar
         </Link>
@@ -22,13 +22,7 @@ function App() {
           Home
         </Link>
 
-
-
-
-
-
-
-        </div>
+        </div>*/}
 
         {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
