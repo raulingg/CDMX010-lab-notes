@@ -1,0 +1,89 @@
+
+
+.hemeroteca{
+    width: 100%;
+    height: auto;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+   opacity: .7;
+   position: absolute;
+   background-attachment: scroll;
+}
+
+.notesMainTemplate{
+  width: 40%;
+  height: 160px;
+  margin-right: 10px;
+}
+
+.notesTemplate{ 
+    width: 615px; 
+    height: 402px; 
+    border: .5px solid #555;
+    display: inline-flex;
+    background-image: url('../images/notesback.png');
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: column;
+    transform: scale(.9);
+    
+}
+
+
+.title{
+    font-size: 17px;
+    color: black;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    top: 20%;
+    position: relative;
+    font-family: 'Cutive', serif;
+}
+
+.sub{
+    font-size: 14px;
+    color: black;
+    font-weight: 590;
+    text-align: center;
+    top: 2.5%;
+    position: relative;
+    font-family: 'Cutive', serif;
+}
+
+.notes{
+    font-family: 'Cutive', serif;
+    font-size: 12px;
+    color: black;
+    top: -10%;
+    position: relative;
+    padding: 2%;
+    font-weight: 400;
+    text-align : justify;
+}
+
+.far {
+    top: 94.5%;
+    position: absolute;
+    right: 1%;
+    font-size: 1.2rem;
+}
+
+.fas{
+    top: 95%;
+    position: absolute;
+    font-size: 1.2rem;
+    right: 4.5%;
+
+}
+
+.date{
+    color: black;
+    top: .5%;
+    position: absolute;
+    right: 1% ;
+    font-size: 12px;
+}
+

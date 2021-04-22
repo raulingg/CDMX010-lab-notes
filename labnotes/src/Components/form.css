@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+}
+.background{
+    width: 100%;
+    height: auto;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+   opacity: .9;
+   position: absolute;
+}
+
+.formTemplate{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    max-width: 75%;
+    min-height: 80%;
+    height: 80%;
+    left: 13.5%;
+    position: absolute;
+    flex-wrap: wrap;
+    flex-direction: row;
+    box-shadow: 1px 1px 1px 1px rgba(65, 65, 66, 0.959);
+    z-index: 2;
+    top: 9%;
+    opacity: .9;
+}
+
+.header{  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row; 
+}
+
+
+.logo{  
+    top: 5px;
+    position: absolute;
+    align-self: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width:auto;
+    max-width: 80%;
+    border-bottom:2px solid black;
+
+}
+
+
+.formInputs{
+    width: 100%;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+}
+
+.form{
+    margin-bottom: 20px;  
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width:100%;
+    height: auto;
+    background: #FFFFFF;
+    border: 1px solid #EBE9E9;
+    box-sizing: border-box;
+    box-shadow: 0px 10px 4px rgba(196, 196, 197, 0.801);
+
+}
+
+.form.date{
+    top: 10px;
+    width: 14%;
+    position: absolute;
+    left: 85%;
+  }
+
+
+.form.title {
+    top: 17%;
+    width: 96%;
+    height: 32px;
+    position: absolute;
+    font-size: 23px;
+    color: black;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    border-top:1.5px solid black;
+    font-family: 'Cutive', serif;
+ }
+
+ .form.sub {
+    top: 27%;
+    width: 96%;
+    height: 25px;
+    position: absolute;
+    font-size: 19px;
+    color: black;
+    font-weight: 400;
+    text-align: center;
+    font-family: 'Cutive', serif;
+ }
+
+ .form.note {
+    top: 34%;
+    width: 96%;
+    height: 335px;
+    position: absolute;
+    font-size: 17px;
+    color: black;
+    font-weight: 300;
+    text-align: center; 
+    font-family: 'Cutive', serif;
+ }
+
+
+.options{
+    top: 85px;
+    right: 10%;
+    position: absolute;
+    font-size: 12px;
+    white-space: pre-line;
+    padding: 10px;
+
+}
+
+.formButton{
+    position: absolute;
+    right: 26%;
+    width: 50%;
+    height: 5%;
+    font-size: 20px;
+    top: 103%;
+    background-color: black;
+    color: white;
+}
+
+.formButton:hover{
+    background-color: white;
+    color: black;
+}
+
+

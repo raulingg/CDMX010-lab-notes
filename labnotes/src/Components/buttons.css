@@ -1,0 +1,37 @@
+.goToArchive{
+    position: absolute;
+    right: 7%;
+    font-size: 15px;
+    top:3%;
+    background-color: white;
+}
+
+.goToArchive:hover{
+    background-color: black;
+    color: white;
+    box-shadow: 1px 10px 10px rgb(253, 253, 255);
+}
+
+.editorialButton{
+    position: absolute;
+    right: 8%;
+    font-size: 15px;
+    top:3%;
+    background-color: white;
+}
+
+
+.home{
+    position: absolute;
+    font-size: 15px;
+    top:3%;
+    right: 2%;
+    background-color: white;
+}
+
+.home:hover {
+    background-color: black;
+    color: white;
+    box-shadow: 1px 10px 10px rgb(253, 253, 255);
+}
+
