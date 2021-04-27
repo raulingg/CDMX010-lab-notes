@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react'
+import { Link } from 'react-router-dom';
 import {db} from '../firebase'
 import hemeroteca from '../images/hemeroteca.jpg'
-import Slider from '../Components/Slider'
+
 import './notes.css'
 
 
@@ -9,6 +10,8 @@ import './notes.css'
 
 export default function Notes(props) {    
     const [notas, setNotas] = useState([]);
+
+
     
     const deleteNote = async (id) => {
         if (window.confirm('Are you sure you want to delete this note?')){
@@ -40,14 +43,14 @@ export default function Notes(props) {
                 <div className='notesBackground'>   
                 <img src ={hemeroteca} className = "hemeroteca" alt="logo"/>   
                 <div className="notesMainTemplate"> </div>
-            <Slider>
+
             {notas.map(notas => {
                 
                 return ( 
                     <div > 
                         <div className="notesTemplate">
-                            <i class="far fa-trash-alt btn-delete" key={notas.id} onClick={()=>deleteNote(notas.id)}></i>
-                            <i class="fas fa-keyboard" key={notas.id} onClick={()=>(notas.id)}></i>
+                            <i className="far fa-trash-alt btn-delete" key={notas.id} onClick={()=>deleteNote(notas.id)}></i>
+                            <Link to={`/publish?id=${notas.id}`} ><i className="fas fa-keyboard"></i></Link>
                             <h5 className="date note">{notas.date} </h5>
                             <h5 className="title note">{notas.title} </h5>
                             <h5 className="sub note">{notas.subtitle} </h5>
@@ -61,7 +64,7 @@ export default function Notes(props) {
                 
                         
             })}  
-            </Slider>
+   
             </div>
          
     )

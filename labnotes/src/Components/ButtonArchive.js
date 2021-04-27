@@ -2,7 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom';
 import './buttons.css'
 
-export default function Buttonarchive() {
+export default function ButtonArchive() {
     const history = useHistory();
     const handleClick = () => history.push('/notes');
     return (

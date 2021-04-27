@@ -1,21 +1,21 @@
-import React, { useState} from 'react'
+import React, { useEffect, useState} from 'react'
 import logo2 from '../images/logo2.png'
 import desk1 from '../images/desk1.jpg'
 import './form.css'
+const Swal = require('sweetalert2');
 
-export default function Form(props) {
-    const Swal = require('sweetalert2');
-
+export default function Form({ add, note}) {
+  
     const initialValue = {
-        date: " ",
-        title: " ",
-        subtitle: " ",
-        note: " ",
+        date: note?.date || "",
+        title: note?.title || "",
+        subtitle: note?.subtitle || "",
+        note: note?.note || "",
     };
     
     const [values, setValues] = useState(initialValue);
 
-
+    console.log(values)
     const inputChange = (e) => {
         const {name, value} = e.target;
         setValues({...values,[name]:value})
@@ -26,7 +26,7 @@ export default function Form(props) {
    
     const handleSubmit = e => {
         e.preventDefault();
-        props.add(values);
+        add(values);
         setValues({...initialValue});
         Swal.fire({
             text: 'Congratulations! Your note has been published.',
@@ -35,6 +35,12 @@ export default function Form(props) {
           });
 
     }
+
+    useEffect(() => {
+        if (note){
+            setValues(initialValue)
+        }
+    }, [note])
 
     return (
         <div className="allForm">
@@ -50,7 +56,7 @@ export default function Form(props) {
                     <input className="form sub" type="text" name="subtitle" value={values.subtitle} placeholder="Subtitle" onChange={inputChange} required/>
                     <textarea className="form note" name="note" value={values.note} onChange={inputChange} placeholder="Note" required/>
                 </div>
-                <button className="formButton"  >
+                <button className="formButton" onSubmit={handleSubmit}>
                     P U B L I S H
                 </button>
             </form>
