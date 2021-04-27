@@ -1,51 +1,70 @@
 import React, { useEffect, useState} from 'react'
 import logo2 from '../images/logo2.png'
+import {db} from '../firebase'
 import desk1 from '../images/desk1.jpg'
 import './form.css'
-const Swal = require('sweetalert2');
+import { useLocation } from 'react-router-dom'
+import Swal  from 'sweetalert2';
 
-export default function Form({ add, note}) {
-  
-    const initialValue = {
-        date: note?.date || "",
-        title: note?.title || "",
-        subtitle: note?.subtitle || "",
-        note: note?.note || "",
-    };
-    
+const initialValue = {
+    date: "",
+    title: "",
+    subtitle: "",
+    note: "",
+};
+
+
+function useQuery() {
+    // ref: https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
+    return new URLSearchParams(useLocation().search);
+}
+
+export default function Form() {
     const [values, setValues] = useState(initialValue);
+    // ref custom hooks: https://reactjs.org/docs/hooks-custom.html
+    const query = useQuery()
+    
+    const getNote = async (id) => {
+        const doc = await db.doc(`notas/${id}`).get();
+        setValues({...values, ...doc.data()});
+    };
 
-    console.log(values)
+    useEffect(() => {
+        if (query.has('id')) {
+            getNote(query.get('id'));   
+        }
+    }, []);
+
+
     const inputChange = (e) => {
         const {name, value} = e.target;
-        setValues({...values,[name]:value})
-        console.log(name, value);
-       
+        setValues({...values, [name]: value})
     };
-
    
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
-        add(values);
-        setValues({...initialValue});
-        Swal.fire({
+
+        const successfulMessage = {
             text: 'Congratulations! Your note has been published.',
             imageUrl:'https://media.giphy.com/media/v2xIous7mnEYg/giphy.gif',
             confirmButtonText: 'Cool!'
-          });
-
-    }
-
-    useEffect(() => {
-        if (note){
-            setValues(initialValue)
         }
-    }, [note])
+
+        // edit note
+        if (query.get('id')){
+            await db.doc(`notas/${query.get('id')}`).update(values);
+            Swal.fire({...successfulMessage, text: 'Your note has been updated!'});
+        } else { // create note
+            await db.collection("notas").add(values);
+            Swal.fire(successfulMessage);
+            setValues({...initialValue});
+        }
+    }
 
     return (
         <div className="allForm">
             <div className="background"></div>
-                <img src ={desk1} className = "background" alt="logo"/>
+            <img src ={desk1} className = "background" alt="logo"/>
             <form className="formTemplate background" onSubmit={handleSubmit}>
                 <div className="header">
                     <img src ={logo2} className = "logo" alt="logo"/>
