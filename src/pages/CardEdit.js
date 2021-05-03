@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './CardEdit.css';
+import { db } from '../firebase';
+import { useHistory } from 'react-router';
+
 
 const inicialValues = {
   title: "",
@@ -7,37 +10,47 @@ const inicialValues = {
 };
 
 function CardEdit() {
+  const history = useHistory();
   const [values, setValues] = useState(inicialValues);
 
-  const addNote = () => {
-    console.log('new Note')
+  const notesinputChange = (e) => {
+    const { id, value } = e.target; // key, value
+    setValues({ ...values, [id]: value })
+  };
+
+  const historyPageInNotes = () => {
+    history.push('/Cards')
   }
 
 
-  const notesinputChange = (e) => {
-    const { id, value} = e.target; // key, value
-    /*console.log(title,textEdit, value);*/
-    setValues({ ...values, [id]: value })
+  const addOrEditNote = async (notesinputChange) => {
+    await db.collection('newNotes').doc().set(notesinputChange);
+    console.log('agregaste la info')
+    //console.log(doc.id)
   };
+
+  useEffect(() => {
+    addOrEditNote();
+
+  })
 
   const notesEdit = e => {
     e.preventDefault();
     console.log(values);
-    // guardar nota ...
 
-
-    
-  };
-
+  }
 
   return (
-    <form className="cardContainer" onSubmit={notesEdit}>
+    <form
+      className="cardContainer" onSubmit={notesEdit}>
       <div className="title">
         <input type="text"
           id="title"
           className="titleControl"
           placeholder="Title"
           onChange={notesinputChange}
+
+
         />
       </div>
 
@@ -47,6 +60,7 @@ function CardEdit() {
           className="textControl"
           placeholder="Text"
           onChange={notesinputChange}
+          value={values.id}
         />
       </div>
 
@@ -54,12 +68,20 @@ function CardEdit() {
       <button className=" btnSave">
         Save
      </button>
+      <div className="actions">
+        <button onClick={historyPageInNotes}
+          className="buttonIni">Ver Notas</button>
+      </div>
+
+
 
 
     </form>
 
   );
 }
+
+
 //crear componentes para editar notas borrar, escribir,eliminar
 export default CardEdit;
 

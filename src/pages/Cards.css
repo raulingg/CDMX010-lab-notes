@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Taviraj:wght@100&display=swap');
+body{
+    background-color: gray;
+}
+.headerW {
+   margin-top: 0%;
+    background: rgba(0, 0, 0, 0.82);
+    height: 80px;
+    
+}
+h1{
+    margin-top: 0%;
+    color: #FFFAFA;
+    text-align: center;
+    font-size: 50px;
+    line-height: 45px;
+    font-family: Rancho;
+    font-style: normal;
+    font-weight: normal;
+}
+.imgDuck{
+   background-size: cover;
+   position: absolute;
+   bottom: 0%; 
+   height: 50px; 
+   width: 100%;  
+}
+.buttonCreate{
+    bottom: 5%; 
+    position: absolute;  
+    right: 5px;
+    border-radius:  80px 80px 80px 80px;
+    background-color:transparent;
+    padding: 1%;
+}
+.buttonCreate img{
+    bottom: 5%; 
+    border-radius: 80px 80px 80px 80px;
+
+}

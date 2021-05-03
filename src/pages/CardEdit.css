@@ -8,7 +8,9 @@
 .cardContainer{
     margin-top: 50%;
     background-color: #F8F5B7;
-    padding: 50px 50px;
+    padding: auto;
+    height: auto;
+    width: 350px;
     margin-bottom: -3%;
 }
 .title{

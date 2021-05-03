@@ -7,8 +7,12 @@ function Main() {
     const history = useHistory();
 
     const historyPageIn = () => {
-        history.push('/CardEdit')
+        history.push('/CardEdit')  
     }
+    const historyPageInNotes = () => {
+        history.push('/Cards')  
+    }
+   
     return (
 
         <div className="containerMain">
@@ -16,6 +20,10 @@ function Main() {
                 <button onClick={historyPageIn}
                     className="buttonIni">Ingresar</button>
             </div>
+            
+
+
+
         </div>
 
 

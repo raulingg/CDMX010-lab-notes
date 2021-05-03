@@ -1,8 +1,8 @@
 import Main from './Main';
 import Cards from './Cards';
-import React, { useState } from "react";
-import CardEdit from './CardEdit';
-import ducky from '../assets/img/ducky.png';
+import React from "react";
+
+
 const Home = () => {
   return (
 
@@ -12,15 +12,10 @@ const Home = () => {
       <div className="titleD">
         <p> UglyDucklingNotes</p>
       </div>
-
       <Cards />
-
-      
-      
-
-
-      </div>
-        )}
+    </div>
+  )
+}
 
 export default Home
 /*
