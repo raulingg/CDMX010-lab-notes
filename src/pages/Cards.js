@@ -1,10 +1,9 @@
-import React from 'react';
-import './CardEdit.js';
+import React, { useState } from 'react';
 import './Cards.css';
 import { useHistory } from 'react-router';
 import duckytwo from '../assets/img/duckytwo.png';
 import icon from '../assets/img/icon.png';
-// import { cardContainer } from '../CardEdit.js'
+
 function Cards() {
   const historyCards = useHistory();
 
@@ -12,16 +11,8 @@ function Cards() {
     historyCards.push('/CardEdit')
 
   }
-  /*renderNotes = () => {
 
-    <div className="notesContainer">
-      <li>{id.title} {id.textEdit}</li>
-
-    </div>
-
-
-  }*/
-
+  
   return (
     <div className="pageNotes">
       <header className="headerW">
@@ -33,15 +24,16 @@ function Cards() {
         <div className="actionsNotes">
           <button
             onClick={historyViewNotes}
-            className="buttonCreate"><img src={icon} width="10%" height="10%"></img> </button>
+            className="buttonCreate"><img src={icon} width="100%" height="0%"></img> </button>
         </div>
         <footer className="imgDuck">
-          <img src={duckytwo} width="30%" height="30%"></img>
+          <img src={duckytwo} width="100%" height="100%"></img>
         </footer>
       </div>
-
     </div>
-  );
+    
+     
+  )
 }
 //esta pagina contiene el render de todas las notas
 //componente de edit 

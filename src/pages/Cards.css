@@ -24,7 +24,8 @@ h1{
    position: absolute;
    bottom: 0%; 
    height: 50px; 
-   width: 100%;  
+   width: 100%; 
+
 }
 .buttonCreate{
     bottom: 5%; 
@@ -32,10 +33,11 @@ h1{
     right: 5px;
     border-radius:  80px 80px 80px 80px;
     background-color:transparent;
-    padding: 1%;
+    padding: 3%;
+    height: 10px;
 }
 .buttonCreate img{
     bottom: 5%; 
     border-radius: 80px 80px 80px 80px;
-
+    
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { useHistory } from 'react-router';
 import './Main.css';
 
@@ -9,10 +8,7 @@ function Main() {
     const historyPageIn = () => {
         history.push('/CardEdit')  
     }
-    const historyPageInNotes = () => {
-        history.push('/Cards')  
-    }
-   
+  
     return (
 
         <div className="containerMain">
