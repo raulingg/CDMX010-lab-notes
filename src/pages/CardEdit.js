@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './CardEdit.css';
 import { db } from '../firebase';
 import { useHistory } from 'react-router';
@@ -11,9 +11,9 @@ const inicialValues = {
 
 function CardEdit() {
   const history = useHistory();
+
   const historyPageInNotes = () => {
     history.push('/Cards')
-
   }
 
   const [values, setValues] = useState(inicialValues);
@@ -22,47 +22,11 @@ function CardEdit() {
     const { id, value } = e.target; // key, value
     setValues({ ...values, [id]: value })
   };
-  /*const fireBase = (e) => {
+
+  const createNote = e => {
     e.preventDefault();
-    notesEdit.db.collection('newNotes').doc().add(values);
-    console.log('agregaste la info')
-  }*/
-
-  const addOrEditNote = async (notesinputChange) => {
-    //await db
-    //.collection('newNotes').doc().set(notesinputChange);
-   //console.log('agregaste la info')
-  // console.log(db.collection('newNotes').doc().set(notesinputChange))
-  console.log(notesinputChange)
-  };
-
-  /*  useEffect(() => {
-    addOrEditNote();
-
-  })  */
-
-  const notesEdit = e => {
-    e.preventDefault();
-    addOrEditNote();
-
-    console.log(values);
-
+    db.collection('newNotes').add(values)
   }
-  
-  useEffect(() => {
-    gNotes();
-    console.log(' getting data ...')
-  }, []);
-
-  const gNotes = async () => {
-    db.collection('newNotes').onSnapshot((querySnapshot) => {
-      const docs = [];
-      querySnapshot.forEach(doc => {
-        docs.push({ ...doc.data(), id: doc.id });
-      });
-      setValues(docs);
-    });
-  };
 
 
   return (
@@ -70,7 +34,7 @@ function CardEdit() {
       <header className="headerW">
         <h1>UglyDucklingNotes</h1>
       </header>
-      <form className="cardContainer" onSubmit={notesEdit}>
+      <form className="cardContainer" onSubmit={createNote}>
         <div className="title">
           <input type="text"
             id="title"
@@ -93,14 +57,7 @@ function CardEdit() {
         <img src={check}></img>
      </button>
 
-        {/*{inicialValues.map(nota => (
-        <div className="noti" key={id}>
-         <div className="noti-container"
-           onClick={() => noteDelete(id)}deleted>
-         </div>
-         </div>
-         //render de listado que retorna map
-      ))}*/}
+      
       </form>
         <button onClick={historyPageInNotes}
           className="buttonViewN">Ver Notas</button>
